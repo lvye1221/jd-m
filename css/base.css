@@ -45,3 +45,9 @@ input {
 .fl-r {
 	float: right;
 }
+
+
+/* 去除a链接的下划线 */
+a {
+	text-decoration: none;
+}
