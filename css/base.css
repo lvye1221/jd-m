@@ -1,0 +1,47 @@
+
+
+/* 移动端的基础文件库 */
+
+* {
+	margin: 0;
+	padding: 0;
+	
+	/* 去除高亮效果 */
+	-webkit-tap-highlight-color: transparent;
+	
+	/* 盒模型： 边框盒模型*/
+	box-sizing: border-box;
+	
+	/* 字体大小 */
+	font-size: 14px;
+	
+	/* 字体 */
+	font-family: "微软雅黑", sans-serif;
+}
+
+input {
+	/* 移动端 现在 扁平化  */
+	border: 0;
+	/* 移动端 有一些 浏览器 会默认给 input标签 添加一些 特有的样式 比如 3d 高光效果  */
+	-webkit-appearance: none;
+}
+
+
+/* 清除浮动 */
+.clearfix::before,    /*前面的伪元素 */
+.clearfix::after {
+	content: "";      	/*内容*/
+	display: block;   	/*块状元素*/
+	visibility: hidden; /*不可见*/
+	height: 0;    		/*高度为0*/
+	clear: both;  		/*清除浮动*/
+}
+
+/* 浮动设置 */
+.fl-l {
+	float: left;
+}
+
+.fl-r {
+	float: right;
+}
