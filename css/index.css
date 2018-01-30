@@ -107,6 +107,7 @@ nav {
 }
 
 nav ul li {
+	padding: 3px;
 	float: left;
 	width: 25%;
 	text-align: center;
