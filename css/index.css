@@ -72,6 +72,8 @@
 
 .banner {
 	position: relative;
+	width: 100%;
+	overflow: hidden;
 }
 
 .banner .pic li {
