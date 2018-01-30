@@ -64,16 +64,54 @@
 }
 
 .pic {
-	width: 100%;
+	width: 200%;
 	
 	/* 动画效果 */
 	transition: all 2s linear;
 }
 
+.banner {
+	position: relative;
+}
+
 .banner .pic li {
-	width: 100%;
+	width: 50%;
 }
 
 .banner .pic li img {
 	width: 100%;
+}
+
+
+.circle {
+	position: absolute;
+	bottom: 10px;
+	left: 45%;
+}
+
+.circle li {
+	margin: 0 3px;
+	float: left;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 1px solid white;
+}
+
+.circle li.current {
+	background: black;
+}
+
+nav {
+	padding: 5px 0;
+}
+
+nav ul li {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+nav ul li img {
+	width: 50%;
 }

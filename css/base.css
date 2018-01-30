@@ -50,6 +50,7 @@ input {
 /* 去除a链接的下划线 */
 a {
 	text-decoration: none;
+	color: rgb(128,128,128);
 }
 
 /* 去除 li前面的小点 */
