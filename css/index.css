@@ -1,6 +1,7 @@
 
 .jd_box {
 	background-color: rgb(238,238,238);
+
 }
 
 
@@ -136,6 +137,53 @@ nav ul li img {
 	width: 95%;
 	background-color: white;
 	margin: 10px auto 0;
-	height: 300px;
-	border: 1px solid black;
+	height: 150px;
+	
+	/* 加阴影 */
+	box-shadow: 2px 2px 5px #cccccc;
+	
+	border: 1px solid #cccccc;
+
+}
+
+.hot .timer {
+	padding: 8px 3px 0;
+}
+
+.hot .timer .seckill {
+	display: block;
+	margin-left: 3px;
+	margin-top: -3px;
+	width: 20px;
+	height: 25px;
+	background: url(../img/seckill-icon.png);
+	background-size: 100%;
+	float: left;
+}
+
+.hot .timer .text {
+	float: left;
+	padding: 0px 3px 0 3px;
+	color: #D44752;
+}
+
+.hot .timer ul {
+	float: left;
+	padding-top: 1px;
+}
+
+.hot .timer li {
+	float: left;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	text-align: center;
+	margin: 0px 1px 0;
+	background: black;
+	color: white;
+}
+
+.hot .timer li:nth-child(3n) {
+	background: white;
+	color: black;
 }
