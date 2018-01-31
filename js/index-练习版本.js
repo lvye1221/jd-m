@@ -14,31 +14,10 @@ window.onload = function() {
 // 拖拽移动轮播图
 function bannerTouch() {
 	
-	// 思路：
-	//   1. 保存开始的点坐标 x
-	//   2. 通过获取移动的坐标x，和开始坐标进行比较
 	
 	
-	// 找到banner元素
-	var oBanner = document.querySelector(".banner")
-	
-	var startX = 0;		// 开始点的x坐标
 	
 	// 1. 给banner添加触摸事件
-	oBanner.addEventListener("touchstart", function(e) {
-		
-		startX = e.touches[0].clientX;	// 起始点x坐标值
-		
-		 console.log("触摸开始", startX)
-	})
-	
-	oBanner.addEventListener("touchmove", function(e) {
-		var x = e.touches[0].clientX;  // 移动的x坐标值
-		
-		var detaX = x - startX; 		// 与起始点的x差值
-		
-		console.log("触摸移动", detaX)
-	})
 	
 	
 }
