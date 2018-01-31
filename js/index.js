@@ -4,12 +4,102 @@
 window.onload = function() {
 
 	// 拖拽移动banner图
-	bannerTouch()
+	// bannerTouch()
 	
 
 	// 轮播图
-	// bannerMove()
+	bannerMove()
+	
+	// 开启倒计时
+	startTimeCount()
+	
+	// 开启顶部导航条透明变化
+	startNavSet()
+	
 }
+
+// 设置顶部导航条透明度变化
+function startNavSet() {
+	
+	// 得到 banner 图的高度
+	var oBanner = document.querySelector(".banner")
+	var maxY = oBanner.offsetHeight
+	
+	
+	// 1. 页面滚动事件
+	window.onscroll = function() {
+		
+		// 2. 获取滚动值
+		var iTop = document.body.scrollTop;
+		
+//		console.log(iTop)
+
+		// 3. 计算透明度的值
+		var opa = iTop / maxY;
+		
+		if (opa > 1) {	// 如果超过1，没意义，变成1
+			opa = 1
+		}
+		
+//		console.log(opa)
+		
+		var jdH = document.querySelector(".jd_h")
+		jdH.style.background = "rgba(201,21,35,"+ opa +")"
+		
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function startTimeCount() {
+	// 1. 创建【3小时】的时间对象
+	var d0 = new Date(0)						// 参考时间
+	var sum = 3 * 60 * 60 * 1000				// 总共毫秒数 
+	
+	// 得到时间显示的 li元素
+	var allLi = document.querySelectorAll(".hot .timer ul li")
+	
+	var timer = setInterval(function() {
+		// 2. 时间减去1秒
+		sum -= 1000
+		
+		var d = new Date(sum)					// 转换为时间对象
+		
+		// 3. 更新到页面
+		var h = d.getHours() - d0.getHours()		// 小时数
+		var m = d.getMinutes()						// 分钟数
+		var s = d.getSeconds()						// 秒数
+		
+//		console.log(h,m,s)
+		
+		// 小时部分
+		allLi[0].innerHTML = parseInt(h / 10)
+		allLi[1].innerHTML = parseInt(h % 10)
+		
+		// 分钟部分
+		allLi[3].innerHTML = parseInt(m / 10)
+		allLi[4].innerHTML = parseInt(m % 10)
+		
+		// 秒的部分
+		allLi[6].innerHTML = parseInt(s / 10)
+		allLi[7].innerHTML = parseInt(s % 10)
+	}, 1000);
+}
+
+
+
+
+
 
 // 拖拽移动轮播图
 function bannerTouch() {
@@ -104,21 +194,6 @@ function bannerMove() {
 	// oBanner 的宽度值 就相当于是 整个页面的宽度
 	var w = oBanner.offsetWidth;
 	
-	// 为了确保轮播顺序，先复制一份 图片
-	oUl.innerHTML += oUl.innerHTML;
-	
-	
-	// 获取li的数量
-	var allLi = oUl.querySelectorAll("li")
-	
-	// 修改 ul 的宽度：  li的数量 * li的宽度 
-	oUl.style.width = allLi.length * w + "px";
-	
-	
-	// 复位所有li的宽度
-	for (var i = 0; i < allLi.length; i++) {
-		allLi[i].style.width = w + "px"
-	}
 	
 	// 图片编号
 	var i = 0;
@@ -126,28 +201,25 @@ function bannerMove() {
 	// 2. 定时器
 	var timer = setInterval(function() {
 		
-		// 打开动画
-		oUl.style.transition = "all 2s linear"
+		i++
 		
-		i++;  	// 指向下一个图片
+		oUl.style.transition = "all .2s"	// 打开动画
 		
-		if (i >= 4) {		// 是否到达最后一张
+		oUl.style.marginLeft = -i * w + "px"
+		
+	}, 1000)
+	
+	oUl.addEventListener("transitionend", function() {
+		// 动画结束
+		
+		if (i >= 2) {
+			// 已经移动到    0,1,2(0) 而且已经结束了
+			i = 0		// 编号回到0
 			
-			// 关闭动画
-			oUl.style.transition = "none"
-			
-			i = 0;			// 回到第0张
-			oUl.style.marginLeft = "0%"
-			
-			
-			
-			
-			return ;		// 下面代码不用执行了
+			oUl.style.transition = "none"	// 关闭动画
+			oUl.style.marginLeft = "0px"	// 图片回去
 		}
-		
-		oUl.style.marginLeft = (-100*i) + "%";	// 改图片
-		
-	}, 3000)
+	})
 	
 }
 

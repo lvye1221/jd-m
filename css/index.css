@@ -51,10 +51,10 @@
   line-height: 25px;
 }
 .pic {
-  width: 200%;
+  width: 400%;
   transform: translateX(0px);
   /* 动画效果 */
-  transition: all 2s linear;
+  transition: all .2s;
 }
 .banner {
   position: relative;
@@ -62,7 +62,7 @@
   overflow: hidden;
 }
 .banner .pic li {
-  width: 50%;
+  width: 25%;
 }
 .banner a {
   display: block;
