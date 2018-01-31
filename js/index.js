@@ -22,12 +22,19 @@ function bannerTouch() {
 	// 找到banner元素
 	var oBanner = document.querySelector(".banner")
 	
+	// 找到 ul 元素
+	var oUl = oBanner.querySelector(".pic")
+	
 	var startX = 0;		// 开始点的x坐标
 	
 	// 1. 给banner添加触摸事件
 	oBanner.addEventListener("touchstart", function(e) {
 		
+		// 得到ul的偏移值
+		var offsetX = oUl.offsetLeft;
+		
 		startX = e.touches[0].clientX;	// 起始点x坐标值
+		startX -= offsetX;				// 加上初始ul的偏移值
 		
 		 console.log("触摸开始", startX)
 	})
@@ -37,7 +44,11 @@ function bannerTouch() {
 		
 		var detaX = x - startX; 		// 与起始点的x差值
 		
-		console.log("触摸移动", detaX)
+		 console.log("触摸移动", startX, x, detaX)
+		
+		// 通过差值，修改 ul 的位置
+		oUl.style.marginLeft = detaX+"px"
+		
 	})
 	
 	
